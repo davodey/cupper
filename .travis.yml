@@ -1,0 +1,12 @@
+os: osx
+language: node_js
+node_js:
+  - "stable"
+before_install:
+  - brew update
+  - brew install hugo
+install:
+  - npm install
+script:
+  - npm run build
+
