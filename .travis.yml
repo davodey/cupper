@@ -1,12 +1,14 @@
-os: osx
-language: node_js
-node_js:
-  - "stable"
-before_install:
-  - brew update
-  - brew install hugo
+# Install the apt prerequisites
+addons:
+  apt:
+    packages:
+      - python-pygments
+
+# Clean and don't fail
 install:
-  - npm install
+  - rm -rf public || exit 0
+
+# Build the website
 script:
-  - hugo
+  - ../binaries/hugo --theme=cupper
 
